@@ -69,27 +69,26 @@ def medianNumeros():
                 numero= float(input('ingrese un número:'))
                 numeros.append(numero)
             print("Media:",stats.mean(numeros))
-        
-def adivinaNumero():
-    print("Tienes un total de 4 intentos. Usalos sabiamente")
-    intentos=0
+            
+def adivina_Numero_secreto():
+    intentos=1
     aleatorio=random.randint(1,100)
     numero=int(input("ingrese un número :"))
-    while True:
-       intentos+=1
-       if numero==aleatorio:
-                print("Bien hecho, has adivinado el número secreto:", aleatorio)
-                break
-       if numero>aleatorio:
-           print("Intenta con uno menor :) ")
-           numero=int(input("ingrese un número"))
-       else:
-           print("Intenta con uno mayor :) ")    
-           numero=int(input("ingrese un número :"))
-       if intentos==3:
-           print("Has agotado tus 4 intentos, el número era", aleatorio)
-           break
-       
+    while numero!=aleatorio:
+        intentos+=1
+        if numero>aleatorio:
+            print("Intenta con uno menor :) ")
+            numero=int(input("ingrese un número"))
+        else:
+            print("Intenta con uno mayor :) ")    
+            numero=int(input("ingrese un número :"))
+        if intentos==3:
+            print("Veo que llevas 3 intentos fallidos, te daré una pista")
+            print("El primer digito es", aleatorio//10)
+            print("Suerte :)")
+
+    print("Wow, que bien. Adivinaste el:", aleatorio)
+
 def  imc(h,w):
     print("Composición corporal:")
     imc=w/pow(h,2)
